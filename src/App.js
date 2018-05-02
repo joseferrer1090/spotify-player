@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Router, Route } from "react-router-dom";
 import propTypes from "prop-types";
-import Home from "./views/Home";
 import Index from "./views/index/index";
 import Player from "./views/player/player";
 import "./App.css";
