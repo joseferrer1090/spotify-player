@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Router, Route } from "react-router-dom";
 import propTypes from "prop-types";
 import Home from "./views/Home";
+import Index from "./views/index/index";
+import Player from "./views/player/player";
 import "./App.css";
 
 class App extends Component {
@@ -9,7 +11,8 @@ class App extends Component {
     return (
       <Router history={this.props.history}>
         <div>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Index} />
+          <Route path="/player/:songId" component={Player} />
         </div>
       </Router>
     );
