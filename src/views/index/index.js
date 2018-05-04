@@ -4,7 +4,7 @@ import "../../../node_modules/materialize-css/dist/css/materialize.min.css";
 import SongItem from "./songitem";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { checkSignIn, search } from "./../../actions";
+import { checkSignIn, search, player } from "./../../actions";
 
 class Index extends Component {
   constructor(props) {
@@ -13,10 +13,23 @@ class Index extends Component {
       song: ""
     };
     this.buscar = this.buscar.bind(this);
+    this.getResultsCard = this.getResultsCard.bind(this);
   }
 
   componentWillMount() {
     this.props.checkSignIn();
+  }
+
+  getResultsCard() {
+    const songs = this.props;
+
+    if (songs.length > 0) {
+      return (
+        <div className="card">
+          <div className="card-content">{console.log("hola mundo")}</div>
+        </div>
+      );
+    }
   }
 
   buscar(event) {
@@ -26,6 +39,7 @@ class Index extends Component {
 
   render() {
     const { song } = this.state;
+    console.log(this.props.songs);
     return (
       <div className="Index">
         <div className="card">
@@ -52,21 +66,17 @@ class Index extends Component {
             </div>
           </div>
         </div>
-        <div className=" card Index-results-card">
-          <div className="card-content">
-            <SongItem />
-          </div>
-          {/* TODO */}
-        </div>
+        {this.getResultsCard()}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  //console.log(state);
   return {
-    routes: state.routes
+    routes: state.routes,
+    songs: state.player
   };
 }
 

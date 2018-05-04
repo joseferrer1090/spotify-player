@@ -47,7 +47,7 @@ export const search = trackName => {
       .search(trackName, { limit: 5 })
       .then(trackCollection => {
         dispatch(completeFetch(trackCollection));
-        console.log(trackCollection);
+        //console.log(trackCollection);
       })
       .catch(err => {
         dispatch(errorFetch(err));

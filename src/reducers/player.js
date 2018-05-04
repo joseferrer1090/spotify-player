@@ -1,4 +1,4 @@
-export default function player(state = [], action) {
+export default function player (state = [], action) {
   switch (action.type) {
     case "COMPLETE_FETCH":
       return [
