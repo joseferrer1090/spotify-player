@@ -5,6 +5,7 @@ import SongItem from "./songitem";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { checkSignIn, search, player } from "./../../actions";
+import Navbar from "./component/navbar";
 
 class Index extends Component {
   constructor(props) {
@@ -41,34 +42,38 @@ class Index extends Component {
     const { song } = this.state;
     console.log(this.props.songs);
     return (
-      <div className="Index">
-        <div className="card">
-          <div className="card-content">
-            <div className="Index-searchBox">
-              <input
-                type="text"
-                placeholder="Cancion"
-                onChange={e => {
-                  this.setState({
-                    song: e.target.value
-                  });
-                  //console.log(song);
-                }}
-                value={song}
-              />
-              <a
-                href=""
-                className="waves-effect waves-light btn"
-                onClick={this.buscar}
-              >
-                <i className="fa fa-search" />
-              </a>
+        <div>
+        <Navbar/>
+        <div className="Index">
+          <div className="card">
+            <div className="card-content">
+              <div className="Index-searchBox">
+                <input
+                  type="text"
+                  placeholder="Cancion"
+                  onChange={e => {
+                    this.setState({
+                      song: e.target.value
+                    });
+                    //console.log(song);
+                  }}
+                  value={song}
+                />
+                <a
+                  href=""
+                  className="waves-effect waves-light btn"
+                  onClick={this.buscar}
+                >
+                  <i className="fa fa-search" />
+                </a>
+              </div>
             </div>
           </div>
+          {this.getResultsCard()}
         </div>
-        {this.getResultsCard()}
-      </div>
-    );
+
+        </div>
+      );
   }
 }
 

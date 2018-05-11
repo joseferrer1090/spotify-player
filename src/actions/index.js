@@ -11,7 +11,8 @@ client.settings = {
   scopes: [
     "user-follow-modify user-follow-read user-library-read user-top-read"
   ],
-  redirect_uri: "https://9f41cf2c.ngrok.io"
+  //redirect_uri: "https://9f41cf2c.ngrok.io"
+  redirect_uri: "http://localhost:3000/"
 };
 
 export const checkSignIn = () => {
